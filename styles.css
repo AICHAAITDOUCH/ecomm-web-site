@@ -84,7 +84,9 @@ body {
   font-weight: 300;
   color: var(--text-dark);
 }
-
+.nav__logo img {
+  width: 50%;
+}
 
 .nav__links {
   list-style: none;
@@ -105,10 +107,10 @@ body {
   color: var(--text-dark);
 }
 
-.nav__icons {
+ .nav__icons {
   display: flex;
   gap: 1rem;
-}
+} 
 
 .nav__icons span {
   font-size: 1.25rem;
@@ -132,7 +134,7 @@ gap: 1px;
   border: none; 
   padding: 5px; 
   cursor: pointer;
-}
+} 
 
 
 
@@ -711,6 +713,12 @@ button.btn:hover {
 
 @media (width < 600px) {
  
+  .nav__logo img{
+    display: block;
+    width: 50px;
+    margin-left:-20px;
+
+  }
 
   header {
     margin-top: 0;
@@ -719,10 +727,46 @@ button.btn:hover {
   .header__container {
     grid-template-columns: repeat(1, 1fr);
   }
-
+/* ++ */
   .header__image {
-    display: none;
+    display: block;
+    width: 150px;
+    margin-left: 260px;
   }
+  
+
+
+.link a {
+  padding: 0 2px;
+  font-size: 10px;
+  
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.nav__icons {
+  display: flex;
+  gap: 5px;
+}
+
+
+
+.nav__icons #searchInput{
+
+  font-size: 10px;
+  
+ 
+}
+
+
+/* ++ */
+
+
 
   .sale__grid {
     grid-template-columns: repeat(1, 1fr);
@@ -744,4 +788,3 @@ button.btn:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
