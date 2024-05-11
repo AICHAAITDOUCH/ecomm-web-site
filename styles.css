@@ -80,11 +80,11 @@ body {
 }
 
 .nav__logo {
-  /* font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-dark); */
-  width: 80px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-dark);
 }
+
 
 .nav__links {
   list-style: none;
@@ -114,6 +114,27 @@ body {
   font-size: 1.25rem;
   cursor: pointer;
 }
+.nav__icons #searchForm{
+  display: flex;
+flex-direction: row;
+gap: 1px;
+}
+.nav__icons #searchInput{
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgb(228, 226, 226);
+  background-position: 10px 10px; 
+ 
+}
+.nav__icons #searchForm button {
+  border: none; 
+  padding: 5px; 
+  cursor: pointer;
+}
+
+
 
 header {
   margin-top: 10rem;
@@ -283,7 +304,10 @@ header {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
-
+.musthave__grid img{
+  width: 100%;
+  height: 300px;
+}
 .musthave__card {
   display: grid;
   gap: 0.5rem;
@@ -467,6 +491,185 @@ header {
   color: var(--white);
 }
 
+/* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */
+
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.images-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  max-width: 60%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.side-images {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.side-image {
+  width: 30%;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.side-image img {
+  width: 80%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.side-image:hover img {
+  transform: scale(1.1);
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f9f9f9;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #000; /* Black border */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #fff; /* White background */
+  color: #000; /* Black text color */
+}
+
+button.btn:hover {
+  background-color: black;
+  color: #fff; /* Change text color on hover */
+}
+
+.musthave__grid2 {
+  display: flex;
+  justify-content: space-around; /* Add space on the left and right */
+  gap: 20px; /* Adjust the gap value as needed */
+}
+
+.musthave__card2 {
+  width: calc(50% - 5px); /* Reduce div size by 50% and consider gap */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.musthave__card2 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.musthave__card2 h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.musthave__card2 p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */
+.dada {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.dada h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.dada .filtera {
+  margin-bottom: 20px;
+}
+
+.dada label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dada select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Optional: Style the select dropdown arrow */
+.dada select::-ms-expand {
+  display: none;
+}
+
+.dada select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+
 @media (width < 900px) {
   header {
     margin-top: 5rem;
@@ -507,9 +710,7 @@ header {
 }
 
 @media (width < 600px) {
-  .nav__links {
-    display: none;
-  }
+ 
 
   header {
     margin-top: 0;
@@ -543,3 +744,4 @@ header {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+

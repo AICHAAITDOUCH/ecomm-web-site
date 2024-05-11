@@ -1,3 +1,10 @@
+
+
+
+ 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,25 +23,29 @@
   <body>
    
     <nav class="section__container nav__container">
-      <a href="#" class="nav__logo"><img src="assets/LOGO.png"> </img> </a>
+      <a href="#" class="nav__logo"><img src="assets/LOGO.png" style="width: 50%;"> </img> </a>
       <ul class="nav__links">
-        <li class="link"><a href="#">HOME</a></li>
-        <li class="link"><a href="#">SHOP</a></li>
-        <li class="link"><a href="#">PAGES</a></li>
-        <li class="link"><a href="#">BLOG</a></li>
-        <li class="link"><a href="login.html">LOOKBOOK</a></li>
+        <li class="link"><a href="index.php">HOME</a></li>
+        <li class="link"><a href="articlepages.php">SHOP</a></li>
+        <li class="link"><a href="#F">BLOG</a></li> 
+    <li class="link"><a href="#new">LOOKBOOK</a></li>
        
       
       </ul>
       
       <div class="nav__icons">
         
-        <form action="login.html" method="get">
+        
+      <form action="search.php" method="get" id="searchForm">
+        <input type="text" name="query" id="searchInput" placeholder="Search..." />
+        <button type="submit"><i class="ri-search-line"></i></button>
+    </form>
+    <span><i class="ri-shopping-bag-2-line"></i></span>
+    <!-- <form action="login.php" method="get">
           <button type="submit"><i style="font-size:24px" class="fa">&#xf007;</i></button>
-      </form>
-        <span><i class="ri-search-line"></i></span>
-        <span><i class="ri-shopping-bag-2-line"></i></span>
+      </form> -->
       </div>
+      
     </nav>
 
     <header>
@@ -50,7 +61,7 @@
       </div>
     </header>
 
-    <section class="section__container collection__container">
+    <section id="new" class="section__container collection__container">
       <img src="assets/collection.jpg" alt="collection" />
       <div class="collection__content">
         <h2 class="section__title">New Collection</h2>
@@ -60,7 +71,7 @@
       </div>
     </section>
 
-    <section class="section__container sale__container">
+    <!-- <section class="section__container sale__container">
       <h2 class="section__title">On Sale</h2>
       <div class="sale__grid">
         <div class="sale__card">
@@ -91,88 +102,73 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="section__container musthave__container">
+    <section class="section_container musthave_container">
       <h2 class="section__title">Must Have</h2>
-      <div class="musthave__nav">
-        <a href="#">ALL</a>
-        <a href="#">MAN</a>
-        <a href="#">WOMEN</a>
-        <a href="#">BAG</a>
-        <a href="#">SHOES</a>
-      </div>
+      
       <div class="musthave__grid">
-        <div class="musthave__card">
-          <img src="assets/musthave-1.png" alt="must have" />
-          <h4>Basic long sleeve T-shirt</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-2.png" alt="must have" />
-          <h4>Ribbed T-shirt with buttons</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-3.png" alt="must have" />
-          <h4>Jacket withside strips</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-4.png" alt="must have" />
-          <h4>High-heel tubular sandals</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-5.png" alt="must have" />
-          <h4>Coral fabric belt bag</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-6.png" alt="must have" />
-          <h4>Piggy skater slogan T-shirt</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-7.png" alt="must have" />
-          <h4>White platform boots</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-8.png" alt="must have" />
-          <h4>Sweater vest with sleeves</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-9.png" alt="must have" />
-          <h4>Slim fit pants</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-10.png" alt="must have" />
-          <h4>Gray backpack</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-11.png" alt="must have" />
-          <h4>Neon sweatshirt</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
-        <div class="musthave__card">
-          <img src="assets/musthave-12.png" alt="must have" />
-          <h4>Hooded nautical jacket</h4>
-          <p><del>$45.00</del> $75.00</p>
-        </div>
+      <?php
+session_start();
+
+// Fonction pour lire les articles à partir du fichier CSV
+function getArticlesFromCSV() {
+    $articles = [];
+    $file = fopen("article.csv", "r");
+    while (($data = fgetcsv($file)) !== FALSE) {
+        $articles[] = [
+            'id' => $data[0],
+            'name' => $data[1],
+            'description' => $data[2],
+            'categorie' => explode(',', $data[3]), // Convertir la chaîne de catégories en tableau
+            'price' => $data[4],
+            'size' => $data[5],
+            'color' => $data[6],
+            'imageurl' => $data[7]
+        ];
+    }
+    fclose($file);
+    return $articles;
+}
+
+// Obtenir la requête de recherche de l'utilisateur
+$query = isset($_GET['query']) ? strtolower($_GET['query']) : '';
+
+// Obtenir tous les articles à partir du fichier CSV
+$articles = getArticlesFromCSV();
+
+// Filtrer les articles en fonction de la requête de recherche
+$results = [];
+foreach ($articles as $article) {
+    // Vérifiez si le nom ou la description de l'article contient la requête de recherche
+    if (strpos(strtolower($article['name']), $query) !== false ||
+        strpos(strtolower($article['description']), $query) !== false) {
+        $results[] = $article;
+    }
+}
+
+// Afficher les résultats de la recherche
+
+foreach ($results as $article) {
+    echo '<div class="result__card">';
+    echo '<a href="gg.php?id=' . $article['id'] . '"><img src="assets/' . $article['imageurl'] . '" alt="' . $article['name'] . '" /></a>';
+    echo '<h4>' . $article['name'] . '</h4>';
+    echo '<p>$' . $article['price'] . '</p>';
+    echo '</div>';
+}
+?>
+
       </div>
     </section>
-
+<br>
+<br>
    
 
     
 
     <hr />
 
-    <footer class="section__container footer__container">
+    <footer id="F" class="section__container footer__container">
       <div class="footer__col">
         <h4 class="footer__heading">CONTACT INFO</h4>
         <p>
@@ -210,6 +206,7 @@
       </div>
     </footer>
 
+
     <hr />
 
     <div class="section__container footer__bar">
@@ -223,12 +220,7 @@
         </form>
       </div>
     </div>
-    <script>
-      document.querySelector("#bouton").addEventListener("click", function() {
-    window.location.href = "page2.html";
-});
-
-    </script>
+    
   </body>
   
 </html>

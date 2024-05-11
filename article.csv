@@ -1,0 +1,27 @@
+id,nom,description,categorie,price,size,color,imageurl
+1,Hoodie Man,Description 1,5,30.99$,Large,Red,hoodie1.jpg
+2,Jacket Man,Description 2,1,49.49$,Medium,Blue,jacket1.jpg
+3,Hoodie Women,Description 3,5,35.75$,Small,Green,hoodie2.jpg
+4, Dress,Description 4,3,35.75$,Small,BLUE,dress.jpg
+5,Dress,Description 5,3,26.75$,Small,BLUE,dress1.jpg
+6,Dress,Description 5,3,38.75$,Small,BLUE,dress2.jpg
+7,Dress,Description 5,3,46.75$,Small,BLUE,dress3.jpg
+8,Dress,Description 5,3,53.75$,Small,BLUE,dress4.jpg
+9,Tshirt Man,Description 5,2,32.75$,Small,BLUE,tshirt1.jpg
+10,Tshirt Man,Description 5,2,43.75$,Small,BLUE,tshirt2.jpg
+11,Tshirt Man,Description 5,2,23.75$,Small,BLUE,tshirt3.jpg
+12,Tishirt Women,Description 5,2,15.75$,Small,BLUE,tshirt4.jpg
+13,Tishirt Women,Description 5,2,45.75$,Small,BLUE,tshirt5.jpg
+14,jacket Man,Description 2,1,32.49$,Medium,Blue,jacket2.jpg
+15,Jacket Women,Description 2,1,43.49$,Medium,Blue,jacket3.jpg
+16,Jacket Women,Description 2,1,36.49$,Medium,Blue,jacket4.jpg
+18,jacket Man,Description 2,4,45.49$,Medium,Blue,jacket5.jpg
+19,Sweater Women,Description 2,4,33.49$,Medium,Blue,sweater1.jpg
+20,Sweater Women,Description 2,4,25.49$,Medium,Blue,sweater2.jpg
+21,Sweater Women,Description 2,4,35.49$,Medium,Blue,sweater3.jpg
+23,Sweater Man,Description 2,4,20.49$,Medium,Blue,sweater4.jpg
+24,Sweater Man,Description 2,4,29.49$,Medium,Blue,sweater5.jpg
+25,Hoodie Women,Description 2,5,31.49$,Medium,Blue,hoodie.jpg
+26,Hoodie Women,Description 2,5,45.49$,Medium,Blue,hoodie3.jpg
+27,Hoodie Man,Description 2,5,46.49$,Medium,Blue,hoodie4.jpg
+28,Hoodie Man,Description 2,5,39.49$,Medium,Blue,hoodie5.jpg
