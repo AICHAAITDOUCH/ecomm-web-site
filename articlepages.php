@@ -31,7 +31,6 @@
 
     <section class="dada">
       <h1>Items with Filter</h1>
-      <!-- Filter options -->
       <div class="filtera">
         <form action="articlepages.php" method="GET">
             <label for="category">Category:</label>
@@ -58,12 +57,10 @@
         
         <div class="musthave__grid">
           <?php
-// Fonction pour lire un fichier CSV et retourner les données
 function readCSV($filename) {
   $data = [];
   if (($handle = fopen($filename, 'r')) !== FALSE) {
       while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
-          // Vérifiez si les colonnes de nom et de prix sont non vides
           if (!empty(trim($row[1])) && !empty(trim($row[4]))) { // Modifiez les indices selon vos colonnes
               // Supprimer les espaces inutiles des valeurs de tableau
               $row = array_map('trim', $row);
@@ -76,16 +73,14 @@ function readCSV($filename) {
 }
 
 
-// Lisez les données des articles à partir du fichier CSV
-$articles = readCSV('article.csv'); // Assurez-vous que ce chemin est correct
+$articles = readCSV('article.csv'); 
 
-// Obtenir la catégorie sélectionnée à partir de l'URL
 $selectedCategory = isset($_GET['category']) ? $_GET['category'] : '0';
 
-// Liste pour stocker tous les articles (si 'All' est sélectionné)
+
 $filteredArticles = [];
 
-// Filtrer les articles en fonction de la catégorie sélectionnée
+
 foreach ($articles as $key => $article) {
   // Vérifiez que les indices de colonne sont corrects selon votre fichier CSV
   $articleCategory = $article[3]; // Colonne de catégorie
@@ -108,12 +103,10 @@ foreach ($filteredArticles as $key => $article) {
       continue;
   }
 
-  // Vérifiez que le nom, le prix et l'URL de l'image ne sont pas vides
   $articleName = isset($article[1]) ? trim($article[1]) : '';
   $articlePrice = isset($article[4]) ? trim($article[4]) : '';
   $articleImageURL = isset($article[7]) ? trim($article[7]) : '';
 
-  // Continuez avec l'article seulement si toutes les données sont non vides
   if ($articleName !== '' && $articlePrice !== '' && $articleImageURL !== '') {
       echo '<div class="musthave__card">';
       // echo '<a href="gg.php?id=' . htmlspecialchars($article[0]) . '">';

@@ -41,9 +41,7 @@
         <button type="submit"><i class="ri-search-line"></i></button>
     </form>
     <span><i class="ri-shopping-bag-2-line"></i></span>
-    <!-- <form action="login.php" method="get">
-          <button type="submit"><i style="font-size:24px" class="fa">&#xf007;</i></button>
-      </form> -->
+   
       </div>
       
     </nav>
@@ -71,38 +69,7 @@
       </div>
     </section>
 
-    <!-- <section class="section__container sale__container">
-      <h2 class="section__title">On Sale</h2>
-      <div class="sale__grid">
-        <div class="sale__card">
-          <img src="assets/sale-1.jpg" alt="sale" />
-          <div class="sale__content">
-            <p class="sale__subtitle">MAN OUTERWEAR</p>
-            <h4 class="sale__title">sale <span>40%</span> off</h4>
-            <p class="sale__subtitle">- DON'T MISS -</p>
-            <button class="btn sale__btn">SHOP NOW</button>
-          </div>
-        </div>
-        <div class="sale__card">
-          <img src="assets/sale-2.jpg" alt="sale" />
-          <div class="sale__content">
-            <p class="sale__subtitle">WOMAN T-SHIRT</p>
-            <h4 class="sale__title">sale <span>25%</span> off</h4>
-            <p class="sale__subtitle">- DON'T MISS -</p>
-            <button class="btn sale__btn">SHOP NOW</button>
-          </div>
-        </div>
-        <div class="sale__card">
-          <img src="assets/sale-3.jpg" alt="sale" />
-          <div class="sale__content">
-            <p class="sale__subtitle">JACKETS</p>
-            <h4 class="sale__title">sale <span>20%</span> off</h4>
-            <p class="sale__subtitle">- DON'T MISS -</p>
-            <button class="btn sale__btn">SHOP NOW</button>
-          </div>
-        </div>
-      </div>
-    </section> -->
+   
 
     <section class="section_container musthave_container">
       <h2 class="section__title">Must Have</h2>
@@ -111,7 +78,6 @@
       <?php
 session_start();
 
-// Fonction pour lire les articles à partir du fichier CSV
 function getArticlesFromCSV() {
     $articles = [];
     $file = fopen("article.csv", "r");
@@ -120,7 +86,7 @@ function getArticlesFromCSV() {
             'id' => $data[0],
             'name' => $data[1],
             'description' => $data[2],
-            'categorie' => explode(',', $data[3]), // Convertir la chaîne de catégories en tableau
+            'categorie' => explode(',', $data[3]), 
             'price' => $data[4],
             'size' => $data[5],
             'color' => $data[6],
@@ -134,7 +100,6 @@ function getArticlesFromCSV() {
 // Obtenir la requête de recherche de l'utilisateur
 $query = isset($_GET['query']) ? strtolower($_GET['query']) : '';
 
-// Obtenir tous les articles à partir du fichier CSV
 $articles = getArticlesFromCSV();
 
 // Filtrer les articles en fonction de la requête de recherche
@@ -147,13 +112,12 @@ foreach ($articles as $article) {
     }
 }
 
-// Afficher les résultats de la recherche
 
 foreach ($results as $article) {
     echo '<div class="result__card">';
     echo '<a href="gg.php?id=' . $article['id'] . '"><img src="assets/' . $article['imageurl'] . '" alt="' . $article['name'] . '" /></a>';
     echo '<h4>' . $article['name'] . '</h4>';
-    echo '<p>$' . $article['price'] . '</p>';
+    echo '<p>' . $article['price'] . '</p>';
     echo '</div>';
 }
 ?>
